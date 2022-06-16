@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+package coupon;
+
+service CouponService {
+  rpc FindOne (CouponByCode) returns (Coupon);
+  rpc FindMany (stream CouponByCode) returns (stream Coupon);
+}
+
+message CouponByCode {
+  string code = 1;
+}
+
+message Coupon {
+  int32 amount = 1;
+  string code = 2;
+  string message = 3;
+}
